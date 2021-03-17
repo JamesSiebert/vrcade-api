@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CreditExport;
 use App\Models\Credit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CreditController extends Controller
 {
@@ -149,4 +151,8 @@ class CreditController extends Controller
             $this->success_status);
     }
 
+    public function export()
+    {
+        return Excel::download(new CreditExport, 'credit_export.xlsx');
+    }
 }

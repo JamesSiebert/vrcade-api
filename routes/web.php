@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('checkin_log');
-//});
 
-Route::get('/', [\App\Http\Controllers\CheckinController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('credit', [\App\Http\Controllers\CreditController::class, 'index']);
+
+// List values
+Route::get('checkins', [\App\Http\Controllers\CheckinController::class, 'index']);
+Route::get('credits', [\App\Http\Controllers\CreditController::class, 'index']);
+
+//CSV exports
+Route::get('checkins_export', [\App\Http\Controllers\CheckinController::class, 'export']);
+Route::get('credits_export', [\App\Http\Controllers\CreditController::class, 'export']);

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Exports\CheckinExport;
 use App\Models\Checkin;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CheckinController extends Controller
 {
@@ -59,5 +62,10 @@ class CheckinController extends Controller
             ->paginate(100);
 
         return view('checkin_log', ['data' => $data]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new CheckinExport, 'checkin_export.xlsx');
     }
 }
