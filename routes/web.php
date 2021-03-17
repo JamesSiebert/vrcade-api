@@ -18,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', [\App\Http\Controllers\CheckinController::class, 'index']);
+
+Route::get('credit', [\App\Http\Controllers\CreditController::class, 'index']);

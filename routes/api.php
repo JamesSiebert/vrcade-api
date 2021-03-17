@@ -20,4 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 // Unguarded End points
-Route::post('checkin', 'CheckinController@checkin');
+//Route::post('checkin', 'CheckinController@checkin');
+Route::post('checkin', [\App\Http\Controllers\CheckinController::class, 'checkin']);
+
+Route::post('check_credit', [\App\Http\Controllers\CreditController::class, 'check_credit']);
+Route::post('modify_credit', [\App\Http\Controllers\CreditController::class, 'modify_credit']);

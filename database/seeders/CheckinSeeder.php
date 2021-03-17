@@ -15,21 +15,39 @@ class CheckinSeeder extends Seeder
     public function run()
     {
         DB::table('checkin')->insert([
-            'player_id' => 'James1',
-            'room_id' => '1',
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'player_id' => 'James',
+            'room_id' => 'login',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
 
         DB::table('checkin')->insert([
-            'player_id' => 'James2',
-            'room_id' => '2',
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'player_id' => 'Ben',
+            'room_id' => 'lobby',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
 
         DB::table('checkin')->insert([
-            'player_id' => 'James2',
-            'room_id' => '3',
-            'updated_at' => DB::raw('CURRENT_TIMESTAMP'),
+            'player_id' => 'James',
+            'room_id' => 'air hockey',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+
+        DB::table('checkin')->insert([
+            'player_id' => 'James',
+            'room_id' => 'air hockey',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+
+        DB::table('checkin')->insert([
+            'player_id' => 'James',
+            'room_id' => 'archery',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+
+        DB::table('checkin')->insert([
+            'player_id' => 'James',
+            'room_id' => 'basketball',
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
     }
 }
