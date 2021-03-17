@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('checkin_log');
+//});
+
+Route::get('/', [\App\Http\Controllers\CheckinController::class, 'index']);

@@ -23,6 +23,7 @@
             <li class="border list-none rounded-sm px-3 py-3" style='border-bottom-width:0'>{{$item->created_at}} | Player ID: {{$item->player_id}} | Room ID: {{$item->room_id}}</li>
         @endforeach
     </ul>
+
 </div>
     {{ $data->appends(Request::except('page'))->links() }}
 </body>

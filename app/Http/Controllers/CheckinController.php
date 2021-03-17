@@ -58,6 +58,6 @@ class CheckinController extends Controller
             ->orderBy('updated_at', 'DESC')
             ->paginate(100);
 
-        return view('checkin-log', ['data' => $data]);
+        return view('checkin_log', ['data' => $data]);
     }
 }
