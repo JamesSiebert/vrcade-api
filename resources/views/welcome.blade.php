@@ -93,10 +93,10 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <ul>
-                                        <li><a href="http://vrcade-api.local/checkins">View all Checkins List</a></li>
-                                        <li><a href="http://vrcade-api.local/credits">View all Credits</a></li>
-                                        <li><a href="http://vrcade-api.local/checkins_export">Download all checkins as XLSX</a></li>
-                                        <li><a href="http://vrcade-api.local/credits_export">Download all credits as XLSX</a></li>
+                                        <li><a href="{{ url('checkins') }}">View all Checkins List</a></li>
+                                        <li><a href="{{ url('credits') }}">View all Credits</a></li>
+                                        <li><a href="{{ url('checkins_export') }}">Download all checkins as XLSX</a></li>
+                                        <li><a href="{{ url('credits_export') }}">Download all credits as XLSX</a></li>
                                     </ul>
                                 </div>
                             </div>
