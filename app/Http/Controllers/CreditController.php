@@ -65,14 +65,30 @@ class CreditController extends Controller
                 ->first();
 
             if($data == null){
+
+                // if no account found make a new one
+                $db_credit = new Credit();
+                $db_credit->player_id = $data->player_id;
+                $db_credit->amount = 0;
+                $db_credit->save();
+
+                $return_balance = 0;
+
+                // Successful balance from existing account
                 return response()->json([
-                    'status' => $this->fail_status,
-                    'reason' => 'Fail - Player not found',
-                    'player_id' => $player_id
+                    'balance' => $return_balance,
+                    'playerId' => $data->player_id,
                 ],
-                    $this->fail_status);
+                    $this->success_status);
             }else{
-                $return_amount = $data->amount;
+                $return_balance = $data->amount;
+
+                // Successful balance from existing account
+                return response()->json([
+                    'balance' => $return_balance,
+                    'playerId' => $data->player_id,
+                ],
+                    $this->success_status);
             }
         }else{
             return response()->json([
@@ -81,13 +97,6 @@ class CreditController extends Controller
             ],
                 $this->fail_status);
         }
-
-        return response()->json([
-            'status' => $this->success_status,
-            'amount' => $return_amount,
-            'sent_post_data' => $data,
-        ],
-            $this->success_status);
     }
 
 

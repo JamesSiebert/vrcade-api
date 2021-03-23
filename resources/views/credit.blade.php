@@ -20,7 +20,7 @@
 <div>
     <ul class="px-0">
         @foreach($data as $item)
-            <li class="border list-none rounded-sm px-3 py-3" style='border-bottom-width:0'>Updated at: {{$item->updated_at}} | Player ID: {{$item->player_id}} | Credit amount: ${{$item->amount}}</li>
+            <li class="border list-none rounded-sm px-3 py-3" style='border-bottom-width:0'>Updated at: {{$item->updated_at}} | Player ID: {{$item->player_id}} | Credit amount: ${{$item->amount / 100}}</li>
         @endforeach
     </ul>
 

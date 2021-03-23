@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\CheckinExport;
 use App\Models\Checkin;
+use App\Models\Credit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,8 @@ class CheckinController extends Controller
 {
     public $success_status = 200;
     public $fail_status = 300;
+    public $deduct_money = true;
+    public $deduct_amount = 10;
 
     public function checkin(Request $request): \Illuminate\Http\JsonResponse
     {
@@ -39,6 +42,27 @@ class CheckinController extends Controller
             $db_checkin->player_id = $data->player_id;
             $db_checkin->room_id = $data->room_id;
             $db_checkin->save();
+
+            // todo deduct money from account
+            if($this->deduct_money == true)
+            {
+                $player_id = $data->player_id;
+
+                $credit_search = Credit::where('player_id', $player_id)
+                    ->first();
+
+                if($data == null) {
+                    // if no account found make a new one
+                    $db_credit = new Credit();
+                    $db_credit->player_id = $data->player_id;
+                    $db_credit->amount = 0 - $this->deduct_amount;
+                    $db_credit->save();
+                }else{
+                    $new_amount = $credit_search->amount - $this->deduct_amount;
+                    $credit_search->amount = $new_amount;
+                    $credit_search->save();
+                }
+            }
 
         }else{
             return response()->json([
