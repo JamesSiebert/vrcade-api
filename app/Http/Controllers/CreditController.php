@@ -84,7 +84,7 @@ class CreditController extends Controller
                 ],
                     $this->success_status);
             }else{
-                $return_balance = $data->amount;
+                $return_balance = $credit_search->amount;
 
                 // Successful balance from existing account
                 return response()->json([
