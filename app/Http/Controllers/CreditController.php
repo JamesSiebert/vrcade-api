@@ -60,15 +60,18 @@ class CreditController extends Controller
 
             $player_id = $data->player_id;
 
-            $data = DB::table('credit')
-                ->where("player_id", "=", $player_id)
+//            $data = DB::table('credit')
+//                ->where("player_id", "=", $player_id)
+//                ->first();
+
+            $credit_search = Credit::where('player_id', $player_id)
                 ->first();
 
-            if($data == null){
+            if($credit_search == null){
 
                 // if no account found make a new one
                 $db_credit = new Credit();
-                $db_credit->player_id = $data->player_id;
+                $db_credit->player_id = $credit_search->player_id;
                 $db_credit->amount = 0;
                 $db_credit->save();
 
@@ -77,7 +80,7 @@ class CreditController extends Controller
                 // Successful balance from existing account
                 return response()->json([
                     'balance' => $return_balance,
-                    'playerId' => $data->player_id,
+                    'playerId' => $credit_search->player_id,
                 ],
                     $this->success_status);
             }else{
@@ -86,7 +89,7 @@ class CreditController extends Controller
                 // Successful balance from existing account
                 return response()->json([
                     'balance' => $return_balance,
-                    'playerId' => $data->player_id,
+                    'playerId' => $credit_search->player_id,
                 ],
                     $this->success_status);
             }
