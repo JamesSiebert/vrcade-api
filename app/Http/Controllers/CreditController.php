@@ -71,7 +71,7 @@ class CreditController extends Controller
 
                 // if no account found make a new one
                 $db_credit = new Credit();
-                $db_credit->player_id = $credit_search->player_id;
+                $db_credit->player_id = $data->player_id;
                 $db_credit->amount = 0;
                 $db_credit->save();
 
