@@ -80,7 +80,7 @@ class CreditController extends Controller
                 // Successful balance from existing account
                 return response()->json([
                     'balance' => $return_balance,
-                    'playerId' => $credit_search->player_id,
+                    'playerId' => $data->player_id,
                 ],
                     $this->success_status);
             }else{
