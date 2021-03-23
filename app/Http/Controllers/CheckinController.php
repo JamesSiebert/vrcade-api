@@ -51,7 +51,7 @@ class CheckinController extends Controller
                 $credit_search = Credit::where('player_id', $player_id)
                     ->first();
 
-                if($data == null) {
+                if($credit_search == null) {
                     // if no account found make a new one
                     $db_credit = new Credit();
                     $db_credit->player_id = $data->player_id;
