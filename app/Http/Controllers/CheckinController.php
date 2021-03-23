@@ -43,7 +43,7 @@ class CheckinController extends Controller
             $db_checkin->room_id = $data->room_id;
             $db_checkin->save();
 
-            // todo deduct money from account
+            // deduct money for game usage
             if($this->deduct_money == true)
             {
                 $player_id = $data->player_id;
@@ -57,10 +57,24 @@ class CheckinController extends Controller
                     $db_credit->player_id = $data->player_id;
                     $db_credit->amount = 0 - $this->deduct_amount;
                     $db_credit->save();
+
+                    return response()->json([
+                        'status' => $this->success_status,
+                        'balance' => 0 - $this->deduct_amount,
+                        'sent_post_data' => $data,
+                    ],
+                        $this->success_status);
                 }else{
                     $new_amount = $credit_search->amount - $this->deduct_amount;
                     $credit_search->amount = $new_amount;
                     $credit_search->save();
+
+                    return response()->json([
+                        'status' => $this->success_status,
+                        'balance' => $new_amount,
+                        'sent_post_data' => $data,
+                    ],
+                        $this->success_status);
                 }
             }
 
@@ -72,11 +86,7 @@ class CheckinController extends Controller
                 $this->fail_status);
         }
 
-        return response()->json([
-            'status' => $this->success_status,
-            'sent_post_data' => $data,
-        ],
-            $this->success_status);
+
     }
 
     public function index(): string
