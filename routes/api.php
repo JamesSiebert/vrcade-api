@@ -25,3 +25,6 @@ Route::post('checkin', [\App\Http\Controllers\CheckinController::class, 'checkin
 
 Route::post('check_credit', [\App\Http\Controllers\CreditController::class, 'check_credit']);
 Route::post('modify_credit', [\App\Http\Controllers\CreditController::class, 'modify_credit']);
+
+//Route::post('get_scores', [\App\Http\Controllers\ScoreController::class, 'get_scores']);
+//Route::post('post_score', [\App\Http\Controllers\ScoreController::class, 'post_score']);
