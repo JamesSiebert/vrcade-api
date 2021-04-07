@@ -107,12 +107,12 @@ class ScoreController extends Controller
             }
 
             return response()->json([
-                'airHockeyTop' => $return_air_hockey_top,
-                'basketballTop' => $return_basketball_top,
-                'archeryTop' => $return_archery_top,
-                'airHockeyPlayerBest' => $return_air_hockey_player_best,
-                'basketballPlayerBest' => $return_basketball_player_best,
-                'archeryPlayerBest' => $return_archery_player_best,
+                'airHockeyTop' => (int)$return_air_hockey_top,
+                'basketballTop' => (int)$return_basketball_top,
+                'archeryTop' => (int)$return_archery_top,
+                'airHockeyPlayerBest' => (int)$return_air_hockey_player_best,
+                'basketballPlayerBest' => (int)$return_basketball_player_best,
+                'archeryPlayerBest' => (int)$return_archery_player_best,
             ],
                 $this->success_status);
 
@@ -205,12 +205,12 @@ class ScoreController extends Controller
             }
 
             return response()->json([
-                'airHockeyTop' => $return_air_hockey_top,
-                'basketballTop' => $return_basketball_top,
-                'archeryTop' => $return_archery_top,
-                'airHockeyPlayerBest' => $return_air_hockey_player_best,
-                'basketballPlayerBest' => $return_basketball_player_best,
-                'archeryPlayerBest' => $return_archery_player_best,
+                'airHockeyTop' => (int)$return_air_hockey_top,
+                'basketballTop' => (int)$return_basketball_top,
+                'archeryTop' => (int)$return_archery_top,
+                'airHockeyPlayerBest' => (int)$return_air_hockey_player_best,
+                'basketballPlayerBest' => (int)$return_basketball_player_best,
+                'archeryPlayerBest' => (int)$return_archery_player_best,
             ],
                 $this->success_status);
 
