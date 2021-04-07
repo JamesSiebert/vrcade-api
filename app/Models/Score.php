@@ -10,5 +10,5 @@ class Score extends Model
     use HasFactory;
 
     // Table name
-    protected $table = 'score';
+    protected $table = 'scores';
 }
