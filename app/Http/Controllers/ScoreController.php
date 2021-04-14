@@ -183,19 +183,26 @@ class ScoreController extends Controller
             $return_basketball_top = 0;
             $return_archery_top = 0;
 
+            $return_air_hockey_top_name = "NA";
+            $return_basketball_top_name = "NA";
+            $return_archery_top_name = "NA";
+
             $score_search = Score::where('room_id', $air_hockey_room_name)->orderBy('score', 'desc')->first();
             if($score_search != null) {
                 $return_air_hockey_top = $score_search->score;
+                $return_air_hockey_top_name = $score_search->player_id;
             }
 
             $score_search = Score::where('room_id', $basketball_room_name)->orderBy('score', 'desc')->first();
             if($score_search != null) {
                 $return_basketball_top = $score_search->score;
+                $return_basketball_top_name = $score_search->player_id;
             }
 
             $score_search = Score::where('room_id', $archery_room_name)->orderBy('score', 'desc')->first();
             if($score_search != null) {
                 $return_archery_top = $score_search->score;
+                $return_archery_top_name= $score_search->player_id;
             }
 
 
@@ -223,6 +230,9 @@ class ScoreController extends Controller
                 'airHockeyTop' => (int)$return_air_hockey_top,
                 'basketballTop' => (int)$return_basketball_top,
                 'archeryTop' => (int)$return_archery_top,
+                'airHockeyTopName' => (string)$return_air_hockey_top_name,
+                'basketballTopName' => (string)$return_basketball_top_name,
+                'archeryTopName' => (string)$return_archery_top_name,
                 'airHockeyPlayerBest' => (int)$return_air_hockey_player_best,
                 'basketballPlayerBest' => (int)$return_basketball_player_best,
                 'archeryPlayerBest' => (int)$return_archery_player_best,
