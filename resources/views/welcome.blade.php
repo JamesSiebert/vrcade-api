@@ -43,6 +43,13 @@
 {{--                logo was here--}}
                 <p class="text-5xl text-gray-300">VRCADE API</p>
 
+
+                <!-- React root DOM -->
+                <div id="user"></div>
+
+
+
+
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
@@ -119,5 +126,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- React JS -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
 </html>
