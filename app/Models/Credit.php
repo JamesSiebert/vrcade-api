@@ -11,4 +11,6 @@ class Credit extends Model
 
     // Table name
     protected $table = 'credit';
+
+    protected $fillable = ['player_id', 'amount'];
 }

@@ -11,4 +11,6 @@ class Checkin extends Model
 
     // Table name
     protected $table = 'checkin';
+
+    protected $fillable = ['player_id', 'room_id'];
 }

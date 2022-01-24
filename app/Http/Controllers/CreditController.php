@@ -15,13 +15,21 @@ class CreditController extends Controller
     public $fail_status = 300;
 
     // WEB
-    public function index(): string
-    {
-        $data = DB::table('credit')
-            ->orderBy('updated_at', 'DESC')
-            ->paginate(100);
+//    public function index(): string
+//    {
+//        $data = DB::table('credit')
+//            ->orderBy('updated_at', 'DESC')
+//            ->paginate(100);
+//
+//        return view('credit', ['data' => $data]);
+//    }
 
-        return view('credit', ['data' => $data]);
+    public function index()
+    {
+        $credits = DB::table('credit')
+            ->get();
+
+        return $credits->toJson();
     }
 
     // WEB

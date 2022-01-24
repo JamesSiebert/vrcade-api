@@ -19,6 +19,26 @@ class CheckinController extends Controller
     public $deduct_money = true;
     public $deduct_amount = 10;
 
+
+//    public function index(): string
+//    {
+//        $data = DB::table('checkin')
+//            ->orderBy('updated_at', 'DESC')
+//            ->paginate(100);
+//
+//        return view('checkin_log', ['data' => $data]);
+//    }
+
+    public function index()
+    {
+        $checkins = DB::table('checkin')
+            ->orderBy('updated_at', 'DESC')
+            ->get();
+
+        return $checkins->toJson();
+    }
+
+
     public function checkin(Request $request): \Illuminate\Http\JsonResponse
     {
         $validator = Validator::make($request->all(), [
@@ -89,14 +109,7 @@ class CheckinController extends Controller
 
     }
 
-    public function index(): string
-    {
-        $data = DB::table('checkin')
-            ->orderBy('updated_at', 'DESC')
-            ->paginate(100);
 
-        return view('checkin_log', ['data' => $data]);
-    }
 
     public function export()
     {

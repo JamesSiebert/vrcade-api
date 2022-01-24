@@ -11,4 +11,6 @@ class Score extends Model
 
     // Table name
     protected $table = 'scores';
+
+    protected $fillable = ['player_id', 'room_id', 'score'];
 }

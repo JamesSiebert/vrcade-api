@@ -16,14 +16,24 @@ class ScoreController extends Controller
 
 
     // WEB
-    public function index(): string
-    {
-        $data = DB::table('scores')
-            ->orderBy('updated_at', 'DESC')
-            ->paginate(100);
+//    public function index(): string
+//    {
+//        $data = DB::table('scores')
+//            ->orderBy('updated_at', 'DESC')
+//            ->paginate(100);
+//
+//        return view('scores', ['data' => $data]);
+//    }
 
-        return view('scores', ['data' => $data]);
+    public function index()
+    {
+        $scores = DB::table('scores')
+        ->get();
+
+        return $scores->toJson();
     }
+
+
 
 //    // WEB
 //    public function get_credit(): string
